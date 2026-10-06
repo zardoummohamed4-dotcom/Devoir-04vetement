@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                @if(vetements.length!=0){
+                <tr>
+                    <th>N°</th>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Taille</th>
+                    <th>Couleur</th>
+                    <th>Date Création</th>
+                </tr>
+                }
+                @for (vetement of vetements; track vetement.idVetement; let index =$index; let nbr=$count;let first = $first;let last = $last)
+
+                {
+                    
+                <tbody>
+                    <tr>
+                        <td>{{index+1}}</td>
+                        <td>{{vetement.idVetement}}</td>
+                        <td>{{vetement.nomVetement}}</td>
+                        <td>{{vetement.prixVetement}}</td>
+                        <td>{{vetement.taille}}</td>
+                        <td>{{vetement.couleur}}</td>
+                        <td>{{vetement.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerVetement(vetement)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateVetement',vetement.idVetement]">Modifier</a></td>
+                    </tr>
+                </tbody>
+                @if(last)
+                        { <h1>Nombre : {{nbr}}</h1>}
+                }
+                @empty {
+                <h1>Aucun vetement trouvé !</h1>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
