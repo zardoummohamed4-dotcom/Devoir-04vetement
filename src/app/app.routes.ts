@@ -8,6 +8,7 @@ export const routes: Routes = [
   { path: 'add-vetement', component: AddVetementComponent },
   {path: "updateVetement/:id", component: UpdateVetementComponent},
   {path: "", redirectTo: "vetements", pathMatch: "full"}
+ 
 ];
 
 

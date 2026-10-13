@@ -11,6 +11,7 @@
                     <th>Taille</th>
                     <th>Couleur</th>
                     <th>Date Création</th>
+                    <th>Type</th>
                 </tr>
                 }
                 @for (vetement of vetements; track vetement.idVetement; let index =$index; let nbr=$count;let first = $first;let last = $last)
@@ -26,15 +27,16 @@
                         <td>{{vetement.taille}}</td>
                         <td>{{vetement.couleur}}</td>
                         <td>{{vetement.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{vetement.type.nomType}}</td>
                         <td><a class="btn btn-danger" (click)="supprimerVetement(vetement)">Supprimer</a></td>
                         <td><a class="btn btn-success" [routerLink]="['/updateVetement',vetement.idVetement]">Modifier</a></td>
                     </tr>
                 </tbody>
                 @if(last)
-                        { <h1>Nombre : {{nbr}}</h1>}
+                        { <h4>Nombre : {{nbr}}</h4>}
                 }
                 @empty {
-                <h1>Aucun vetement trouvé !</h1>
+                <h4>Aucun vetement trouvé !</h4>
                 }
 
             </table>
